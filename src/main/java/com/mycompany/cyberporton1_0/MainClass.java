@@ -10,5 +10,6 @@ public class MainClass {
         FormularioPrincipal MainForm = new FormularioPrincipal();
         MainForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         MainForm.setVisible(true); 
+ 
     }
 }
