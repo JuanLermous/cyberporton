@@ -6,6 +6,7 @@ public class MainClass {
         String hola;
         String commitjuan; 
         String commitG50;
+        String commitAracely;
                
         FormularioPrincipal MainForm = new FormularioPrincipal();
         MainForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
