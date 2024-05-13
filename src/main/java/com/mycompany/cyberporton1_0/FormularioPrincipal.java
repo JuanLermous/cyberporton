@@ -746,7 +746,7 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         if (stockActual <= 0) {
             JOptionPane.showMessageDialog(null, "No hay stock disponible para este producto.");
         } else {
-            String cantidad = JOptionPane.showInputDialog(null, "¿Cuántos deseas agregar?. El esto de este producto es de: "  + stockActual);
+            String cantidad = JOptionPane.showInputDialog(null, "¿Cuántos deseas agregar?. Productos disponibles: "  + stockActual);
             cantidadProductoSeleccionado = Integer.valueOf(cantidad);
             if(cantidadProductoSeleccionado > stockActual){
                  JOptionPane.showMessageDialog(null, "Cantidad seleccionada no valida!");  
@@ -787,7 +787,7 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         if (stockActual <= 0) {
             JOptionPane.showMessageDialog(null, "No hay stock disponible para este producto.");
         } else {
-            String cantidad = JOptionPane.showInputDialog(null, "¿Cuántos deseas agregar?. El esto de este producto es de: " + stockActual);
+            String cantidad = JOptionPane.showInputDialog(null, "¿Cuántos deseas agregar?. Productos disponibles: " + stockActual);
             cantidadProductoSeleccionado = Integer.valueOf(cantidad);
             if (cantidadProductoSeleccionado > stockActual) {
                 JOptionPane.showMessageDialog(null, "Cantidad seleccionada no valida!");
@@ -808,7 +808,7 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         if (stockActual <= 0) {
             JOptionPane.showMessageDialog(null, "No hay stock disponible para este producto.");
         } else {
-            String cantidad = JOptionPane.showInputDialog(null, "¿Cuántos deseas agregar?. El esto de este producto es de: " + stockActual);
+            String cantidad = JOptionPane.showInputDialog(null, "¿Cuántos deseas agregar?. Productos disponibles: " + stockActual);
             cantidadProductoSeleccionado = Integer.valueOf(cantidad);
             if (cantidadProductoSeleccionado > stockActual) {
                 JOptionPane.showMessageDialog(null, "Cantidad seleccionada no valida!");
@@ -829,7 +829,7 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         if (stockActual<= 0) {
             JOptionPane.showMessageDialog(null, "No hay stock disponible para este producto.");
         } else {
-            String cantidad = JOptionPane.showInputDialog(null, "¿Cuántos deseas agregar?. El esto de este producto es de: " + stockActual);
+            String cantidad = JOptionPane.showInputDialog(null, "¿Cuántos deseas agregar?. Productos disponibles: " + stockActual);
             cantidadProductoSeleccionado = Integer.valueOf(cantidad);
             if (cantidadProductoSeleccionado > stockActual) {
                 JOptionPane.showMessageDialog(null, "Cantidad seleccionada no valida!");
@@ -850,7 +850,7 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         if (stockActual<= 0) {
             JOptionPane.showMessageDialog(null, "No hay stock disponible para este producto.");
         } else {
-            String cantidad = JOptionPane.showInputDialog(null, "¿Cuántos deseas agregar?. El esto de este producto es de: " + stockActual);
+            String cantidad = JOptionPane.showInputDialog(null, "¿Cuántos deseas agregar?. Productos disponibles: " + stockActual);
             cantidadProductoSeleccionado = Integer.valueOf(cantidad);
             if (cantidadProductoSeleccionado > stockActual) {
                 JOptionPane.showMessageDialog(null, "Cantidad seleccionada no valida!");
