@@ -13,14 +13,17 @@ import javax.swing.table.DefaultTableModel;
 public class FormularioPrincipal extends javax.swing.JFrame {
     private MySqlConnection conexion;
     private MetodosGenerales objetoG;
+    private MetodosGenerales ob1;
     
     public FormularioPrincipal() {
         this.conexion = new MySqlConnection();
         this.objetoG = new MetodosGenerales();
+        this.ob1=new MetodosGenerales();
         initComponents();
         setLocationRelativeTo(null);   
         objetoG.MostrarProductos(tbProductos,conexion);
         ImagenCyberMonday();
+        ob1.MostrarHistorialVentas(tbhistorial,conexion);
         this.getContentPane().setBackground(new Color(220, 223, 241));
     }
 
@@ -64,6 +67,8 @@ public class FormularioPrincipal extends javax.swing.JFrame {
         lbltotal = new javax.swing.JLabel();
         btncomprar = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tbhistorial = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cyber Porton");
@@ -270,7 +275,7 @@ public class FormularioPrincipal extends javax.swing.JFrame {
                             .addComponent(btneliminar))
                         .addGap(57, 57, 57))
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
+                        .addGap(78, 78, 78)
                         .addComponent(btncomprar)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -283,7 +288,7 @@ public class FormularioPrincipal extends javax.swing.JFrame {
                         .addComponent(btneliminar)
                         .addGap(52, 52, 52)
                         .addComponent(lbltotal, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btncomprar))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
@@ -309,18 +314,37 @@ public class FormularioPrincipal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Carrito", jPanel5);
 
+        tbhistorial.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane4.setViewportView(tbhistorial);
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 715, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 401, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Ventas", jPanel6);
+        jTabbedPane1.addTab("Historial de ventas", jPanel6);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -345,7 +369,7 @@ public class FormularioPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btncomprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncomprarActionPerformed
-
+        
     }//GEN-LAST:event_btncomprarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
@@ -481,11 +505,13 @@ public class FormularioPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblCyberMonday;
     private javax.swing.JLabel lblHotSale;
     private javax.swing.JLabel lbltotal;
     private javax.swing.JTable tbCarrito;
     private javax.swing.JTable tbProductos;
+    private javax.swing.JTable tbhistorial;
     // End of variables declaration//GEN-END:variables
 }

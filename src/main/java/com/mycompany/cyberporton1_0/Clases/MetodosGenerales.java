@@ -1,4 +1,3 @@
-
 package com.mycompany.cyberporton1_0.Clases;
 
 import java.sql.ResultSet;
@@ -10,27 +9,27 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-public class MetodosGenerales {    
-    
-    public void MostrarProductos(JTable paramTablaProductos, MySqlConnection conexion){
- 
+public class MetodosGenerales {
+
+    public void MostrarProductos(JTable paramTablaProductos, MySqlConnection conexion) {
+
         DefaultTableModel modelo = new DefaultTableModel();
-        TableRowSorter<TableModel>OrdenarTabla = new TableRowSorter<TableModel>(modelo);
+        TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<TableModel>(modelo);
         paramTablaProductos.setRowSorter(OrdenarTabla);
-        String consultaSQL ="select * from productos;";
+        String consultaSQL = "select * from productos;";
         modelo.addColumn("ID");
         modelo.addColumn("Nombre");
         modelo.addColumn("Precio");
         modelo.addColumn("Stock");
         modelo.addColumn("Descripcion");
         paramTablaProductos.setModel(modelo);
-     
+
         String[] datos = new String[5];
         Statement st;
-        try{
+        try {
             st = conexion.getConnection().createStatement();
-            ResultSet rs = st.executeQuery(consultaSQL );
-            while (rs.next()){
+            ResultSet rs = st.executeQuery(consultaSQL);
+            while (rs.next()) {
                 datos[0] = rs.getString(1);
                 datos[1] = rs.getString(2);
                 datos[2] = rs.getString(3);
@@ -39,27 +38,54 @@ public class MetodosGenerales {
                 modelo.addRow(datos);
             }
             paramTablaProductos.setModel(modelo);
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se pudo mostrar los registros, erro: "+ e.toString());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo mostrar los registros, erro: " + e.toString());
         }
     }
-    
-    public void Seleccionar(JTable paramTablaProductos, JTextField paramId, JTextField paramNombres, JTextField paramPrecio, JTextField paramStock, JTextField paramDescripcion){
-        try{
+
+    public void Seleccionar(JTable paramTablaProductos, JTextField paramId, JTextField paramNombres, JTextField paramPrecio, JTextField paramStock, JTextField paramDescripcion) {
+        try {
             int fila = paramTablaProductos.getSelectedRow();
-            if (fila>=0){
+            if (fila >= 0) {
                 paramId.setText((paramTablaProductos.getValueAt(fila, 0).toString()));
                 paramNombres.setText((paramTablaProductos.getValueAt(fila, 1).toString()));
                 paramPrecio.setText((paramTablaProductos.getValueAt(fila, 2).toString()));
                 paramStock.setText((paramTablaProductos.getValueAt(fila, 3).toString()));
                 paramDescripcion.setText((paramTablaProductos.getValueAt(fila, 4).toString()));
-            }
-            else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Fila no seleccionada");
             }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Error de selección, error: "+ e.toString());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error de selección, error: " + e.toString());
+        }
+    }
+
+    public void MostrarHistorialVentas(JTable TablaHistorialVentas, MySqlConnection conexion) {
+
+        DefaultTableModel modelo = new DefaultTableModel();
+        TableRowSorter<TableModel> OrdenarTabla = new TableRowSorter<TableModel>(modelo);
+        TablaHistorialVentas.setRowSorter(OrdenarTabla);
+        modelo.addColumn("ID Venta");
+        modelo.addColumn("ID Producto");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("Total Venta");
+        TablaHistorialVentas.setModel(modelo);
+
+        try {
+            String[] datos = new String[4];
+            String consultaSQL = "select * from ventadetalles;";
+            Statement st = conexion.getConnection().createStatement();
+            ResultSet rs = st.executeQuery(consultaSQL);
+            while (rs.next()) {
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);
+                datos[2] = rs.getString(3);
+                datos[3] = rs.getString(4);
+                modelo.addRow(datos);
+            }
+            TablaHistorialVentas.setModel(modelo);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo mostrar los registros, error: " + e.toString());
         }
     }
 }
-    
